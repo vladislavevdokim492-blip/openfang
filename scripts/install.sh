@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# OpenFang installer — works on Linux, macOS, WSL
-# Usage: curl -sSf https://openfang.sh | sh
+# ClawForge installer — works on Linux, macOS, WSL
+# Usage: curl -sSf https://clawforge.sh | sh
 #
 # Environment variables:
-#   OPENFANG_INSTALL_DIR  — custom install directory (default: ~/.openfang/bin)
-#   OPENFANG_VERSION      — install a specific version tag (default: latest)
+#   CLAWFORGE_INSTALL_DIR  — custom install directory (default: ~/.clawforge/bin)
+#   CLAWFORGE_VERSION      — install a specific version tag (default: latest)
 
 set -euo pipefail
 
-REPO="RightNow-AI/openfang"
-INSTALL_DIR="${OPENFANG_INSTALL_DIR:-$HOME/.openfang/bin}"
+REPO="RightNow-AI/clawforge"
+INSTALL_DIR="${CLAWFORGE_INSTALL_DIR:-$HOME/.clawforge/bin}"
 
 detect_platform() {
     OS=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -25,13 +25,13 @@ detect_platform() {
         mingw*|msys*|cygwin*)
             echo ""
             echo "  For Windows, use PowerShell instead:"
-            echo "    irm https://openfang.sh/install.ps1 | iex"
+            echo "    irm https://clawforge.sh/install.ps1 | iex"
             echo ""
             echo "  Or download the .msi installer from:"
             echo "    https://github.com/$REPO/releases/latest"
             echo ""
             echo "  Or install via cargo:"
-            echo "    cargo install --git https://github.com/$REPO openfang-cli"
+            echo "    cargo install --git https://github.com/$REPO clawforge-cli"
             exit 1
             ;;
         *) echo "  Unsupported OS: $OS"; exit 1 ;;
@@ -42,13 +42,13 @@ install() {
     detect_platform
 
     echo ""
-    echo "  OpenFang Installer"
+    echo "  ClawForge Installer"
     echo "  =================="
     echo ""
 
     # Get latest version
-    if [ -n "${OPENFANG_VERSION:-}" ]; then
-        VERSION="$OPENFANG_VERSION"
+    if [ -n "${CLAWFORGE_VERSION:-}" ]; then
+        VERSION="$CLAWFORGE_VERSION"
         echo "  Using specified version: $VERSION"
     else
         echo "  Fetching latest release..."
@@ -58,19 +58,19 @@ install() {
     if [ -z "$VERSION" ]; then
         echo "  Could not determine latest version."
         echo "  Install from source instead:"
-        echo "    cargo install --git https://github.com/$REPO openfang-cli"
+        echo "    cargo install --git https://github.com/$REPO clawforge-cli"
         exit 1
     fi
 
-    URL="https://github.com/$REPO/releases/download/$VERSION/openfang-$PLATFORM.tar.gz"
+    URL="https://github.com/$REPO/releases/download/$VERSION/clawforge-$PLATFORM.tar.gz"
     CHECKSUM_URL="$URL.sha256"
 
-    echo "  Installing OpenFang $VERSION for $PLATFORM..."
+    echo "  Installing ClawForge $VERSION for $PLATFORM..."
     mkdir -p "$INSTALL_DIR"
 
     # Download to temp
     TMPDIR=$(mktemp -d)
-    ARCHIVE="$TMPDIR/openfang.tar.gz"
+    ARCHIVE="$TMPDIR/clawforge.tar.gz"
     CHECKSUM_FILE="$TMPDIR/checksum.sha256"
 
     cleanup() { rm -rf "$TMPDIR"; }
@@ -79,7 +79,7 @@ install() {
     if ! curl -fsSL "$URL" -o "$ARCHIVE" 2>/dev/null; then
         echo "  Download failed. The release may not exist for your platform."
         echo "  Install from source instead:"
-        echo "    cargo install --git https://github.com/$REPO openfang-cli"
+        echo "    cargo install --git https://github.com/$REPO clawforge-cli"
         exit 1
     fi
 
@@ -108,11 +108,11 @@ install() {
 
     # Extract
     tar xzf "$ARCHIVE" -C "$INSTALL_DIR"
-    chmod +x "$INSTALL_DIR/openfang"
+    chmod +x "$INSTALL_DIR/clawforge"
 
     # Ad-hoc codesign on macOS (prevents SIGKILL on Apple Silicon)
     if [ "$OS" = "darwin" ] && command -v codesign &>/dev/null; then
-        codesign --force --sign - "$INSTALL_DIR/openfang" 2>/dev/null || true
+        codesign --force --sign - "$INSTALL_DIR/clawforge" 2>/dev/null || true
     fi
 
     # Add to PATH — detect the user's login shell
@@ -143,7 +143,7 @@ install() {
         fi
     fi
 
-    if [ -n "$SHELL_RC" ] && ! grep -q "openfang" "$SHELL_RC" 2>/dev/null; then
+    if [ -n "$SHELL_RC" ] && ! grep -q "clawforge" "$SHELL_RC" 2>/dev/null; then
         case "$USER_SHELL" in
             */fish)
                 mkdir -p "$(dirname "$SHELL_RC")"
@@ -157,18 +157,18 @@ install() {
     fi
 
     # Verify installation
-    if "$INSTALL_DIR/openfang" --version >/dev/null 2>&1; then
-        INSTALLED_VERSION=$("$INSTALL_DIR/openfang" --version 2>/dev/null || echo "$VERSION")
+    if "$INSTALL_DIR/clawforge" --version >/dev/null 2>&1; then
+        INSTALLED_VERSION=$("$INSTALL_DIR/clawforge" --version 2>/dev/null || echo "$VERSION")
         echo ""
-        echo "  OpenFang installed successfully! ($INSTALLED_VERSION)"
+        echo "  ClawForge installed successfully! ($INSTALLED_VERSION)"
     else
         echo ""
-        echo "  OpenFang binary installed to $INSTALL_DIR/openfang"
+        echo "  ClawForge binary installed to $INSTALL_DIR/clawforge"
     fi
 
     echo ""
     echo "  Get started:"
-    echo "    openfang init"
+    echo "    clawforge init"
     echo ""
     echo "  The setup wizard will guide you through provider selection"
     echo "  and configuration."

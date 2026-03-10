@@ -1,0 +1,38 @@
+[package]
+name = "clawforge-desktop"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Native desktop application for the ClawForge Agent Core (Tauri 2.0)"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+clawforge-kernel = { path = "../clawforge-kernel" }
+clawforge-api = { path = "../clawforge-api" }
+clawforge-types = { path = "../clawforge-types" }
+tokio = { workspace = true }
+axum = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-notification = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-autostart = "2"
+tauri-plugin-updater = "2"
+serde = { workspace = true }
+toml = { workspace = true }
+open = "5"
+
+[features]
+# Tauri uses custom-protocol in production builds
+custom-protocol = ["tauri/custom-protocol"]
+
+[[bin]]
+name = "clawforge-desktop"
+path = "src/main.rs"

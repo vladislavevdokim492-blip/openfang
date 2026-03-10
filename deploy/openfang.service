@@ -1,27 +1,27 @@
 [Unit]
-Description=OpenFang Agent OS Daemon
-Documentation=https://github.com/openfang-ai/openfang
+Description=ClawForge Agent OS Daemon
+Documentation=https://github.com/clawforge-ai/clawforge
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
-User=openfang
-Group=openfang
-ExecStart=/usr/local/bin/openfang start
+User=clawforge
+Group=clawforge
+ExecStart=/usr/local/bin/clawforge start
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=30
 
 # Environment
-EnvironmentFile=-/etc/openfang/env
-WorkingDirectory=/var/lib/openfang
+EnvironmentFile=-/etc/clawforge/env
+WorkingDirectory=/var/lib/clawforge
 
 # Security hardening
 NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=true
-ReadWritePaths=/var/lib/openfang
+ReadWritePaths=/var/lib/clawforge
 PrivateTmp=true
 ProtectKernelTunables=true
 ProtectKernelModules=true

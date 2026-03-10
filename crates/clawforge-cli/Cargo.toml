@@ -1,0 +1,33 @@
+[package]
+name = "clawforge-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "CLI tool for the ClawForge Agent Core"
+
+[[bin]]
+name = "clawforge"
+path = "src/main.rs"
+
+[dependencies]
+clawforge-types = { path = "../clawforge-types" }
+clawforge-kernel = { path = "../clawforge-kernel" }
+clawforge-api = { path = "../clawforge-api" }
+clawforge-migrate = { path = "../clawforge-migrate" }
+clawforge-skills = { path = "../clawforge-skills" }
+clawforge-extensions = { path = "../clawforge-extensions" }
+zeroize = { workspace = true }
+tokio = { workspace = true }
+clap = { workspace = true }
+clap_complete = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+dirs = { workspace = true }
+reqwest = { workspace = true, features = ["blocking"] }
+clawforge-runtime = { path = "../clawforge-runtime" }
+uuid = { workspace = true }
+ratatui = { workspace = true }
+colored = { workspace = true }

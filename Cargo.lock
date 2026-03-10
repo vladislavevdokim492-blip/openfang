@@ -3874,7 +3874,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-api"
+name = "clawforge-api"
 version = "0.3.29"
 dependencies = [
  "async-trait",
@@ -3884,16 +3884,16 @@ dependencies = [
  "dashmap",
  "futures",
  "governor",
- "openfang-channels",
- "openfang-extensions",
- "openfang-hands",
- "openfang-kernel",
- "openfang-memory",
- "openfang-migrate",
- "openfang-runtime",
- "openfang-skills",
- "openfang-types",
- "openfang-wire",
+ "clawforge-channels",
+ "clawforge-extensions",
+ "clawforge-hands",
+ "clawforge-kernel",
+ "clawforge-memory",
+ "clawforge-migrate",
+ "clawforge-runtime",
+ "clawforge-skills",
+ "clawforge-types",
+ "clawforge-wire",
  "reqwest 0.12.28",
  "serde",
  "serde_json",
@@ -3911,7 +3911,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-channels"
+name = "clawforge-channels"
 version = "0.3.29"
 dependencies = [
  "async-trait",
@@ -3927,7 +3927,7 @@ dependencies = [
  "lettre",
  "mailparse",
  "native-tls",
- "openfang-types",
+ "clawforge-types",
  "reqwest 0.12.28",
  "serde",
  "serde_json",
@@ -3943,20 +3943,20 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-cli"
+name = "clawforge-cli"
 version = "0.3.29"
 dependencies = [
  "clap",
  "clap_complete",
  "colored",
  "dirs 6.0.0",
- "openfang-api",
- "openfang-extensions",
- "openfang-kernel",
- "openfang-migrate",
- "openfang-runtime",
- "openfang-skills",
- "openfang-types",
+ "clawforge-api",
+ "clawforge-extensions",
+ "clawforge-kernel",
+ "clawforge-migrate",
+ "clawforge-runtime",
+ "clawforge-skills",
+ "clawforge-types",
  "ratatui",
  "reqwest 0.12.28",
  "serde",
@@ -3970,14 +3970,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-desktop"
+name = "clawforge-desktop"
 version = "0.3.29"
 dependencies = [
  "axum",
  "open",
- "openfang-api",
- "openfang-kernel",
- "openfang-types",
+ "clawforge-api",
+ "clawforge-kernel",
+ "clawforge-types",
  "serde",
  "serde_json",
  "tauri",
@@ -3996,7 +3996,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-extensions"
+name = "clawforge-extensions"
 version = "0.3.29"
 dependencies = [
  "aes-gcm",
@@ -4006,7 +4006,7 @@ dependencies = [
  "chrono",
  "dashmap",
  "dirs 6.0.0",
- "openfang-types",
+ "clawforge-types",
  "rand 0.8.5",
  "reqwest 0.12.28",
  "serde",
@@ -4024,12 +4024,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-hands"
+name = "clawforge-hands"
 version = "0.3.29"
 dependencies = [
  "chrono",
  "dashmap",
- "openfang-types",
+ "clawforge-types",
  "serde",
  "serde_json",
  "tempfile",
@@ -4041,7 +4041,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-kernel"
+name = "clawforge-kernel"
 version = "0.3.29"
 dependencies = [
  "async-trait",
@@ -4053,14 +4053,14 @@ dependencies = [
  "futures",
  "hex",
  "libc",
- "openfang-channels",
- "openfang-extensions",
- "openfang-hands",
- "openfang-memory",
- "openfang-runtime",
- "openfang-skills",
- "openfang-types",
- "openfang-wire",
+ "clawforge-channels",
+ "clawforge-extensions",
+ "clawforge-hands",
+ "clawforge-memory",
+ "clawforge-runtime",
+ "clawforge-skills",
+ "clawforge-types",
+ "clawforge-wire",
  "rand 0.8.5",
  "reqwest 0.12.28",
  "serde",
@@ -4077,12 +4077,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-memory"
+name = "clawforge-memory"
 version = "0.3.29"
 dependencies = [
  "async-trait",
  "chrono",
- "openfang-types",
+ "clawforge-types",
  "rmp-serde",
  "rusqlite",
  "serde",
@@ -4096,13 +4096,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-migrate"
+name = "clawforge-migrate"
 version = "0.3.29"
 dependencies = [
  "chrono",
  "dirs 6.0.0",
  "json5",
- "openfang-types",
+ "clawforge-types",
  "serde",
  "serde_json",
  "serde_yaml",
@@ -4115,7 +4115,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-runtime"
+name = "clawforge-runtime"
 version = "0.3.29"
 dependencies = [
  "anyhow",
@@ -4126,9 +4126,9 @@ dependencies = [
  "dashmap",
  "futures",
  "hex",
- "openfang-memory",
- "openfang-skills",
- "openfang-types",
+ "clawforge-memory",
+ "clawforge-skills",
+ "clawforge-types",
  "regex-lite",
  "reqwest 0.12.28",
  "rusqlite",
@@ -4148,12 +4148,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-skills"
+name = "clawforge-skills"
 version = "0.3.29"
 dependencies = [
  "chrono",
  "hex",
- "openfang-types",
+ "clawforge-types",
  "reqwest 0.12.28",
  "serde",
  "serde_json",
@@ -4171,7 +4171,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-types"
+name = "clawforge-types"
 version = "0.3.29"
 dependencies = [
  "async-trait",
@@ -4190,7 +4190,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "openfang-wire"
+name = "clawforge-wire"
 version = "0.3.29"
 dependencies = [
  "async-trait",
@@ -4198,7 +4198,7 @@ dependencies = [
  "dashmap",
  "hex",
  "hmac",
- "openfang-types",
+ "clawforge-types",
  "rand 0.8.5",
  "serde",
  "serde_json",

@@ -1,9 +1,9 @@
 {
-  "name": "@openfang/whatsapp-gateway",
+  "name": "@clawforge/whatsapp-gateway",
   "version": "0.1.0",
-  "description": "WhatsApp Web gateway for OpenFang — QR code login, bidirectional messaging via Baileys",
+  "description": "WhatsApp Web gateway for ClawForge — QR code login, bidirectional messaging via Baileys",
   "bin": {
-    "openfang-whatsapp-gateway": "./index.js"
+    "clawforge-whatsapp-gateway": "./index.js"
   },
   "type": "commonjs",
   "main": "index.js",
