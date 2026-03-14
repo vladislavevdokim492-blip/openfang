@@ -14,6 +14,7 @@ members = [
     "crates/clawforge-desktop",
     "crates/clawforge-hands",
     "crates/clawforge-extensions",
+    "crates/clawforge-master",
     "xtask",
 ]
 
